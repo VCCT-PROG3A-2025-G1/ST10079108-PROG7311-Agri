@@ -1,0 +1,35 @@
+﻿
+
+@model AgriApp.Models.AddProductViewModel
+
+
+
+
+
+<dv class="add-body">
+
+    <div class="ab-para">
+        <h1>Add Product</h1>
+        <h2>Form for farmers to add products</h2>
+        <p>
+            Ensure that all fields are entered
+        </p>
+    </div>
+
+    <form method="post" class="add-form" id="AddForm">
+        <div class="form-section">
+            
+            <input placeholder="Product Name" type="text" class="form-control" asp-for="Name" required />
+        </div>
+
+        <div class="form-section">
+            
+            <input placeholder="Category" type="text" class="form-control" asp-for="Category" required />
+        </div>
+
+        <div class="form-section">
+            <button type="submit" class="btn-submit">Save</button>
+        </div>
+    </form>
+
+</dv>

@@ -1,0 +1,40 @@
+﻿@page
+@model AgriApp.Pages.RegisterModel
+@{
+}
+
+<div class="add-body">
+    <div class="ab-para">
+        <h1>Register Farmer</h1>
+        <h2>Form for Employees to register farmers</h2>
+        <p>
+            Ensure that all fields are entered
+        </p>
+    </div>
+
+    <form method="post" class="add-form">
+        <div asp-validation-summary="All" class="text-danger">
+        </div>
+        <div class="form-section">
+            
+            <input placeholder="Email Address" type="text" asp-for="Model.Email" class="form-control" required />
+            <span asp-validation-for="Model.Email" class="text-danger"></span>
+        </div>
+        <div class="form-section">
+            
+            <input placeholder="Password" type="password" asp-for="Model.Password" class="form-control" required />
+            <span asp-validation-for="Model.Password" class="text-danger"></span>
+        </div>
+        <div class="form-section">
+            
+            <input placeholder="Confirm Password" type="password" asp-for="Model.ConfirmPassword" class="form-control" required />
+            <span asp-validation-for="Model.ConfirmPassword" class="text-danger"></span>
+        </div>
+        <div class="form-section">
+            <button type="submit" class="btn-submit">Register</button>
+        </div>
+    </form>
+
+</div>
+
+
