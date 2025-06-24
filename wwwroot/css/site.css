@@ -139,6 +139,19 @@ button {
 
 /*My Products list*/
 
+.filter-Form {
+    
+    padding-bottom: 20px;
+}
+.ffLbl{
+    padding-left:20px;
+}
+.ffBtn {
+    width: auto;
+    padding-left: 10px;
+    background-color: #000000;
+}
+
 .AMAP-Products-body {
     display: flex;
     flex-direction: column;

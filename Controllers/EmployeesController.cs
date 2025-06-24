@@ -1,4 +1,5 @@
 ﻿using AgriApp.Models;
+using AgriApp.Models.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -25,12 +26,38 @@ namespace AgriApp.Controllers
             return View(farmers);
         }
 
-        public async Task<IActionResult> ViewProducts(string id)
+        [HttpGet]
+        public async Task<IActionResult> ViewProducts(string id, string str)
         {
-            var products = await dbContext.Products.Where(prd => prd.FarmerId == id).ToListAsync();
+            //var products = await dbContext.Products.Where(prd => prd.FarmerId == id).ToListAsync();
 
+            IQueryable<Product> query = dbContext.Products.Where(prd => prd.FarmerId == id);
+            
             var farmer = await userManager.FindByIdAsync(id);
             ViewBag.FarmerEmail = farmer?.Email;
+            ViewBag.FarmerId = id;
+
+            if (string.IsNullOrEmpty(str))
+            {
+                // no filter
+            }
+            else if (str == "Name")
+            {
+                query = query.OrderBy(prd => prd.Name);
+            }
+            else if (str == "Date")
+            {
+                query = query.OrderBy(prd => prd.Date);
+            }
+            else if (str == "Category")
+            {
+                query = query.OrderBy(prd => prd.Category);
+            }
+
+
+            var products = await query.ToListAsync();
+
+            
 
             return View(products);
         }

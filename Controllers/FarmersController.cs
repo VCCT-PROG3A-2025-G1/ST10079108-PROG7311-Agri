@@ -45,11 +45,31 @@ namespace AgriApp.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> List()
+        public async Task<IActionResult> List(string str)
         {
             var farmerID = userManager.GetUserId(User);
 
-            var product = await dbContext.Products.Where(prd => prd.FarmerId == farmerID).ToListAsync();
+            IQueryable<Product> query = dbContext.Products.Where(prd => prd.FarmerId == farmerID);
+
+            if (string.IsNullOrEmpty(str))
+            {
+                // no filter
+            }
+            else if(str == "Name")
+            {
+                query = query.OrderBy(prd => prd.Name);
+            }
+            else if (str == "Date")
+            {
+                query = query.OrderBy(prd => prd.Date); 
+            }
+            else if (str == "Category")
+            {
+                query = query.OrderBy(prd => prd.Category);
+            }
+
+
+            var product = await query.ToListAsync();
 
             return View(product);
         }

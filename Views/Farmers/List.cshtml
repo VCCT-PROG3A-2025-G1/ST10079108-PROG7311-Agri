@@ -7,7 +7,12 @@
 
 
 <div class="AMAP-Products-body">
-
+    <form method="get" action="/Farmers/List" class="filter-Form">
+        <input type="radio" name="str" value="Name" class="ffLbl" />Name
+        <input type="radio" name="str" value="Date" class="ffLbl" />Date
+        <input type="radio" name="str" value="Category" class="ffLbl" />Category
+        <button type="submit" class="ffBtn">Filter</button>
+    </form>
     <table class="product-table">
         <thead>
             <tr>
