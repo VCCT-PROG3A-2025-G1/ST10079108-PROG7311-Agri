@@ -42,7 +42,8 @@ If Employee, the user will now have access to the Add Farmers page and Farmers p
  
 Links
 Youtube:
-https://youtu.be/xh1Q7U0I8z0
+https://youtu.be/xh1Q7U0I8z0  (for updates)
+https://youtu.be/5ugiIYNq3l0 (for full app)
 
 GitHub:
 https://github.com/ST10079108/ST10079108-PROG7311-PART2-AgriApp
